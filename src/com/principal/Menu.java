@@ -1,9 +1,9 @@
 package com.principal;
 
-import com.functionality.PetList;
-import com.functionality.arena.ArenaMode;
-import com.utilities.GUI;
-import com.utilities.Validation;
+import com.functionalities.PetList;
+import com.functionalities.combats.ArenaMode;
+import com.functionalities.utilities.GUI;
+import com.functionalities.utilities.Validation;
 
 /**
  * Clase que contiene el menu principal y sus diferentes opciones para el juego
@@ -15,6 +15,9 @@ public class Menu {
     Validation validate = new Validation();
     GUI gui = new GUI();
     
+    /**
+     * Muestra el menu principal del juego con las opciones disponibles
+     */
     public void showMenu(){
         int opcion;
         boolean repeat = true;
@@ -31,6 +34,11 @@ public class Menu {
         } 
     }
     
+    /**
+     * Metodo que manda a llamar a las diferentes acciones que el menu permite realizar
+     * @param opcion es el numero de la opcion que se seleccione
+     * @return un valor booleano para determinar si se sigue repitiendo el menu o se finaliza el programa
+     */
     public boolean menuOption(int opcion){
         boolean repeat = true;
         
@@ -48,7 +56,7 @@ public class Menu {
             case 3:
                 creativeMode();
                 validate.enterToContinue();
-               gui.clearConsole();
+                gui.clearConsole();
                 break;
             case 4:
                 showPets();
@@ -63,18 +71,33 @@ public class Menu {
         return repeat;
     }
     
+    /**
+     * Se inicializan los objetos y metodos necesarios para el modo arena
+     */
     public void arenaMode(){
         gui.title("MODO ARENA");
         ArenaMode arenaMode = new ArenaMode();
-        arenaMode.startBattle();
+        arenaMode.startGame();
         validate.enterToContinue();
     }
+
+    /**
+     * Se inicializan los objetos y metodos necesarios para el modo versus
+     */
     public void versusMode(){
         gui.title("MODO VERSUS");
     }
+
+    /**
+     * Se inicializan los objetos y metodos necesarios para el modo creativo
+     */
     public void creativeMode(){
         gui.title("MODO CREATIVO");
     }
+
+    /**
+     * Se inicializan los objetos y metodos necesarios para el listado de mascotas
+     */
     public void showPets(){
         gui.title("LISTADO DE MASCOTAS");
         PetList petList = new PetList();

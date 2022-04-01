@@ -1,11 +1,15 @@
 package com.animals;
 
+import com.functionalities.utilities.GUI;
+
 /**
  * Clase padre de todas las mascotas del juego
  * @author Erik David Lopez
  * 
  */
 public abstract class Pet {
+    GUI gui = new GUI();
+    
     private String name;
     private int attackPoints;
     private int lifePoints;
@@ -25,6 +29,10 @@ public abstract class Pet {
         this.petID = petID;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+    
     /**
      * Setter para la variable que determina los puntos de ataque de la mascota
      * @param attackPoints
@@ -100,9 +108,11 @@ public abstract class Pet {
     /**
      * Muestra los datos generales de la mascota, como lo es su nombre, vida y ataque
      */
-    public void showStats(){    
-        System.out.println("\n"+getName()+"    Ataque: "+getAttackPoints()+" pts "+"   Vida: "+getLifePoints()+" pts");
-        //System.out.println("Ataque: "+getAttackPoints()+" pts "+"   Vida: "+getLifePoints()+" pts");
+    public void showStats(){
+        int lenght = name.length();
+        String space = gui.generateSpacesNames(lenght);
+        
+        System.out.println(getName()+space+"Ataque: "+getAttackPoints()+" pts "+"   Vida: "+getLifePoints()+" pts");
     }
     public void showData(){
         System.out.println("\n"+getName());
