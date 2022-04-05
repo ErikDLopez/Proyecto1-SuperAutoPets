@@ -1,10 +1,10 @@
 package com.functionalities.combats;
 
 import com.animals.Pet;
-import com.functionalities.Store;
 import com.functionalities.actions.Fight;
 import com.functionalities.actions.SelectPet;
 import com.functionalities.stages.maps.Map;
+import com.functionalities.store.Store;
 import com.functionalities.utilities.GUI;
 import com.functionalities.utilities.Validation;
 import com.functionalities.utilities.interfaces.Color;

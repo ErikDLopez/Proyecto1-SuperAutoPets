@@ -44,23 +44,21 @@ public class Menu {
         
         switch(opcion){
             case 1:
+                gui.clearConsole();
                 arenaMode();
                 
                 break;
             case 2:
                 versusMode();
-                validate.enterToContinue();
                 gui.clearConsole();
                 
                 break;
             case 3:
                 creativeMode();
-                validate.enterToContinue();
                 gui.clearConsole();
                 break;
             case 4:
                 showPets();
-                validate.enterToContinue();
                 gui.clearConsole();
                 break;
             case 5:
@@ -78,7 +76,6 @@ public class Menu {
         gui.title("MODO ARENA");
         ArenaMode arenaMode = new ArenaMode();
         arenaMode.startGame();
-        validate.enterToContinue();
     }
 
     /**
