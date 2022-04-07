@@ -14,7 +14,6 @@ import com.functionalities.utilities.Validation;
 public class StoreAction{
     Validation validate = new Validation();
     GUI gui = new GUI();
-    BuyAtStore buyAtStore = new BuyAtStore();
     
     public void showStore(int round, int lifes, int cups){
         Store.setGold(10);
@@ -61,7 +60,7 @@ public class StoreAction{
                 sellPet();
                 break;
             case 3:
-                //rollPets();
+                rollPets();
                 break;
             case 4:
                 move();
@@ -76,15 +75,18 @@ public class StoreAction{
     }
     
     public void buy(){
+        BuyAtStore buyAtStore = new BuyAtStore();
         buyAtStore.buy(Store.getPets(),Store.getPetsStore(),Store.getGold());
     }
     
     public void sellPet(){
-        
+        SellPet sellPet = new SellPet();
+        sellPet.sell(Store.getPets());
     }
     
     public void rollPets(){
-        
+        RollPets rollPets = new RollPets();
+        rollPets.roll(Store.getPetsStore(),Store.getGold(),Store.getRound());
     }
     
     public void move(){

@@ -29,7 +29,7 @@ public class ArenaMode implements Color{
     
     public void startGame(){
         int playerLife = 10;
-        int round = 1;
+        int round = 12;
         int cups = 0;
         pets = nullPets(pets.length);
         enemyPets = nullPets(enemyPets.length);

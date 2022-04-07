@@ -8,11 +8,11 @@ import com.functionalities.utilities.Validation;
 /**
  *
  * @author Erik David Lopez
+ * 
  */
 public class MovePet {
     GUI gui = new GUI();
     Validation validate = new Validation();
-    BuyAtStore buy = new BuyAtStore();
     
     public void move(Pet[] pets){
         gui.title("MOVER/FUSIONAR");
@@ -25,19 +25,28 @@ public class MovePet {
     public Pet[] options(Pet[] pets){
         int option = validate.validateNumber("Seleccione una opcion: ",1,2);
         
-        int positionPet1 = validate.validateNumber("No. de la primer mascota ",1,5);
-        int positionPet2 = validate.validateNumber("No. de la segunda mascota ",1,5);
+        int positionPet1 = validate.validateNumber("No. de la primer mascota: ",1,5);
+        int positionPet2 = validate.validateNumber("No. de la segunda mascota: ",1,5);
         positionPet1--;
         positionPet2--;
         
-        switch (option) {
-            case 1:
-                 pets = swapPets(pets, positionPet1,positionPet2);
-                break;
-            case 2:
-                pets = mergePets(pets, positionPet1,positionPet2);
-                break;
+        int pet1 = pets[positionPet1].getPetID();
+        int pet2 = pets[positionPet2].getPetID();
+        
+        if (pet1 == 0 && pet2 == 0) {
+            System.out.println("\nEspaciones vacios, no se puede realizar la accion");
+            validate.enterToContinue();
+        } else {
+            switch (option) {
+                case 1:
+                    pets = swapPets(pets, positionPet1,positionPet2);
+                    break;
+                case 2:
+                    pets = mergePets(pets, positionPet1,positionPet2);
+                    break;
+            }
         }
+        
         return pets;
     }
     

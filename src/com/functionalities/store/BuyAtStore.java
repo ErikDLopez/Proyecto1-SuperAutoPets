@@ -45,7 +45,7 @@ public class BuyAtStore {
     
     public void buyAPet(){
         System.out.println("\nCOMPRAR MASCOTA");
-        int numberPet = validate.validateNumber("No. de mascota que comprará: ", 1, pets.length);
+        int numberPet = validate.validateNumber("No. de la mascota que comprará: ", 1, petsStore.length);
         checkPetStore(numberPet);
     }
     
@@ -56,7 +56,6 @@ public class BuyAtStore {
     public void checkPetStore(int numberPet){
         numberPet--;
         int petID = petsStore[numberPet].getPetID();
-        
         
         if (petID == 0){
             System.out.println("\nNo hay mascota en esta posicion");
@@ -85,6 +84,8 @@ public class BuyAtStore {
         
         if (petID == petStoreID) {
             mergePets(positionPet);
+            System.out.println("\nMascota Fusionada");
+            validate.enterToContinue();
         } else {
             pets[positionPet] = petsStore[numberPet];
         }
@@ -102,8 +103,6 @@ public class BuyAtStore {
         levelUp(positionPet);
         pets[positionPet].setAttackPoints(attack);
         pets[positionPet].setLifePoints(life);
-        System.out.println("\nMascota Fusionada");
-        validate.enterToContinue();
     }
     public void levelUp(int positionPet){
         int levelProgress = pets[positionPet].getLevelProgress();

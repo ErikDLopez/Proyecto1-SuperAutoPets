@@ -20,6 +20,7 @@ public class Store {
     public static Pet[] petsStore;
     public static Pet[] pets;
     public static int gold;
+    public static int round;
 
     public static Pet[] getPetsStore() {
         return petsStore;
@@ -46,9 +47,13 @@ public class Store {
         Store.gold = gold;
     }
 
+    public static int getRound() {
+        return round;
+    }
     
     public void startStore(Pet[] pets, int round, int lifes, int cups){
         this.pets = pets;
+        this.round = round;
         petsStore = new Pet[determineLengthPetsStore(round)];
         generatePetsStore(round);
         
